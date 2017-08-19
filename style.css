@@ -31,3 +31,14 @@ h2 span {
 	transition: 0.3s ease;
 }
 
+.github {
+	opacity: 0;
+	transition: 1s ease;
+	position: absolute;
+	top: 10px;
+	right: 10px;
+}
+
+.github img {
+	height: 34px;
+}
