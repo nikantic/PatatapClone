@@ -168,10 +168,16 @@
 	}
 
 	var circles = [];
-
+	var firstTime = true;
+	var words = document.querySelectorAll(".words");
 
 	function onKeyDown(event) {
 		if(keyData[event.key]) {
+			if (firstTime) {
+				setTimeout(hideWords, 500);
+				setTimeout(showOtherWords, 3000);
+				firstTime = false;
+			}
 			var maxPoint = new Point(view.size.width, view.size.height);
 			var randomPoint = Point.random();
 			var point = maxPoint * randomPoint;
@@ -189,10 +195,55 @@
 		}
 	}
 
-</script>
+	function showWords() {
+		var afterTime = 700;
+
+		for (var i = 0; i < words.length; i++) {
+			(function (i) {
+				setTimeout(function(){
+					words[i].style.opacity = 1;
+				}, afterTime);
+				afterTime+=200;
+			}).call(this, i);
+		}	
+	}
+
+	showWords();
+
+	function hideWords() {
+		var afterTime = 700;
+
+		for (var i = words.length-1; i >= 0; i--) {
+			(function (i) {
+				setTimeout(function(){
+					words[i].style.opacity = 0;
+				}, afterTime);
+				afterTime+=200;
+			}).call(this, i);
+		}	
+	}
+
+	function showOtherWords() {
+		for (var i = 2; i < words.length; i++) {
+			words[i].style.display = "none";
+		}
+		words[0].textContent = "Have";
+		words[1].textContent = "fun!";
+		showWords();
+		setTimeout(hideWords, 2000);
+	}
+	
+	</script>
 </head>
 
 <body>
 	<canvas id="myCanvas" resize></canvas>
+	<h2>
+		<span class="words">Press</span>
+		<span class="words">keys</span>
+		<span class="words">to</span>
+		<span class="words">make</span>
+		<span class="words">noise!</span>
+	</h2>
 </body>
 </html>
