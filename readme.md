@@ -4,10 +4,6 @@ This is a [Patatap](http://www.patatap.com/) inspired website. See it in action 
 
 Press any key to make noise and trigger different sounds, circles and colors.
 
-This is another fun project I did as a part of [The Web Developer Bootcamp](https://www.udemy.com/the-web-developer-bootcamp/). 
-
-
-
 ## Built with
 
 - HTML
